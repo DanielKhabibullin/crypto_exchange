@@ -1,0 +1,11 @@
+$header: #392350;
+$bgcolor: #210b36;
+$text: #c6b6d7;
+$pink: #9c19ca;
+$blue: #4b00ca;
+
+@mixin tablet {
+	@media (max-width: 768px) {
+		@content;
+	}
+}

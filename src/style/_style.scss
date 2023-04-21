@@ -1,11 +1,4 @@
 
-:root {
-	--header: #392350;
-	--bgcolor: #210b36;
-	--text: #c6b6d7;
-	--pink: #9c19ca;
-	--blue: #4b00ca;
-}
 html {
 	box-sizing: border-box;
 	position: relative;
@@ -16,7 +9,7 @@ html {
 	box-sizing: inherit;
 }
 body {
-	background-color: var(--bgcolor);
+	background-color: $bgcolor;
 	color: #fff;
 	font-family: Merriweather Sans, sans-serif;
 	font-size: 16px;
@@ -77,29 +70,29 @@ iframe {
 }
 .active {
 	color: #c6b6d7;
-	color: var(--text);
+	color: $text;
 }
-.Header_header__HXQOm {
-	background-color: var(--header);
+.header {
+	background-color: $header;
 	padding: 20px 0;
 }
-.Header_container__vI36D {
+.header__container {
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
 }
-.Header_nav__J8WFt {
+.header__navigation {
 	gap: 30px;
 }
-.Header_exit__QnsIX,
-.Header_nav__J8WFt {
+.header__navigation-exit,
+.header__navigation {
 	display: flex;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 20px;
 }
-.Header_exit__QnsIX {
+.header__navigation-exit {
 	align-items: center;
 	background-color: initial;
 	border: none;
@@ -107,46 +100,46 @@ iframe {
 	gap: 5px;
 }
 @media (max-width: 768px) {
-	.Header_header__HXQOm {
+	.header {
 		padding: 10px 0;
 	}
-	.Header_nav__J8WFt {
+	.header__navigation {
 		font-size: 12px;
 		gap: 15px;
 	}
-	.Header_exit__QnsIX {
+	.header__navigation-exit {
 		font-size: 12px;
 	}
-	.Header_logo__UsziS {
+	.header__logo-image {
 		max-width: 100px;
 	}
-	.Header_arrow__UOjtE {
+	.header__navigation-arrow {
 		max-width: 10px;
 	}
 }
-.Layout_container__dVyML {
+.layout {
 	margin: 0 auto;
 	max-width: 1240px;
 	padding: 0 15px;
 }
 @media (min-width: 768px) {
-	.Layout_container__dVyML {
+	.layout {
 		padding: 0 30px;
 	}
 }
-.Currencies_container__7ljxx {
+.currencies__container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-top: 80px;
 }
-.Currencies_title__EZeC\+ {
+.currencies__title {
 	font-family: Comfortaa;
 	font-size: 40px;
 	font-weight: 700;
 	line-height: 45px;
 }
-.Currencies_button__bDW4g {
+.currencies__button {
 	font-family: Nunito;
 	font-size: 18px;
 	font-weight: 700;
@@ -154,42 +147,42 @@ iframe {
 	margin-bottom: 70px;
 	padding: 12px 30px;
 }
-.Currencies_currencies__\+cpi4 {
+.currencies__wrapper {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
 }
-.Currencies_currencies__title__5BSO9 {
+.currencies__wrapper-title {
 	font-family: Comfortaa;
 	font-size: 26px;
 	font-weight: 700;
 	line-height: 29px;
 	margin-bottom: 20px;
 }
-.Currencies_sort__jn3o0 {
+.currencies__sort {
 	align-items: center;
 	display: flex;
 	gap: 15px;
 }
-.Currencies_sort__title__dnFDd {
-	color: var(--text);
+.currencies__sort-title {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 20px;
 }
-.Currencies_select__TqOYs {
+.currencies__sort-select {
 	background-color: initial;
 	border: none;
 	color: #fff;
 	outline: transparent;
-	width: 70px;
+	width: 100%;
 }
-.Currencies_select__TqOYs option {
-	background-color: var(--bgcolor);
+.currencies__sort-select option {
+	background-color: $bgcolor;
 }
-.Currencies_list__M1Qq1 {
+.currencies__list {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
@@ -201,57 +194,57 @@ iframe {
 	height: 90vh;
 	justify-content: center;
 	width: 100%;
-}
+} // TODO
 @media (max-width: 768px) {
-	.Currencies_container__7ljxx {
+	.currencies__container {
 		justify-content: center;
 	}
-	.Currencies_title__EZeC\+ {
+	.currencies__title {
 		font-size: 30px;
 		line-height: 35px;
 		margin-bottom: 20px;
 		text-align: center;
 	}
-	.Currencies_bitton__N8TzP {
+	.currencies__button {
 		margin-bottom: 30px;
 	}
-	.Currencies_currencies__title__5BSO9 {
+	.currencies__wrapper-title {
 		font-size: 20px;
 		margin-bottom: 0;
 	}
-	.Currencies_list__M1Qq1 {
+	.currencies__list {
 		margin-top: 20px;
 	}
 }
-.Card_card__GMSLx {
-	background: var(--header);
-	border: 2px solid var(--pink);
+.currencies__list-card {
+	background: $header;
+	border: 2px solid $pink;
 	border-radius: 10px;
 	display: flex;
 	flex-basis: 380px;
 	flex-direction: column;
 	padding: 15px 20px;
 }
-.Card_id__ocrqy {
-	color: var(--text);
+.currencies__list-card-id {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-style: normal;
 	line-height: 20px;
 	margin-bottom: 15px;
 }
-.Card_balance__6XpLd {
+.currencies__list-card-balance {
 	font-family: Nunito;
 	font-size: 32px;
 	font-weight: 600;
 	line-height: 44px;
 	margin-bottom: 20px;
 }
-.Card_balance__6XpLd:after {
+.currencies__list-card-balance:after {
 	content: ' ₽';
 }
-.Card_info__dEaPs {
-	color: var(--text);
+.currencies__list-card-info {
+	color: $text;
 	display: flex;
 	font-family: Nunito;
 	font-size: 15px;
@@ -260,71 +253,71 @@ iframe {
 	line-height: 20px;
 	width: 100%;
 }
-.Account_container__bOskA {
+.account__container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-top: 65px;
 }
-.Account_container__header__MABYz {
+.account__container-header {
 	align-items: center;
 	display: flex;
 	flex-basis: 100%;
 	justify-content: space-between;
 	margin-bottom: 80px;
 }
-.Account_title__oytHW {
+.account__title {
 	font-family: Comfortaa;
 	font-size: 26px;
 	font-weight: 700;
 	line-height: 29px;
 }
-.Account_dynamic__q70XE {
-	background: var(--header);
+.account__dynamic {
+	background: $header;
 	border-radius: 10px;
 	margin-top: 50px;
 	max-height: 330px;
 	padding: 20px;
 	width: 580px;
 }
-.Account_dynamic__header__iCPTa {
+.account__dynamic-header {
 	align-items: center;
 	display: flex;
 }
-.Account_dynamic__title__JwsS2 {
+.account__dynamic-title {
 	font-family: Nunito;
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 27px;
 	margin-right: 20px;
 }
-.Account_dynamic__year__22YBJ {
-	color: var(--text);
+.account__dynamic-year {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 20px;
 }
-.Account_dynamic__select__7zXlN {
+.account__dynamic-select {
 	background-color: initial;
 	border: none;
-	color: var(--text);
+	color: $text;
 	margin-left: auto;
 	outline: transparent;
 }
-.Account_dynamic__select__7zXlN option {
-	background-color: var(--header);
+.account__dynamic-select option {
+	background-color: $header;
 }
-.Account_button__3jGkT {
+.account__button {
 	align-items: center;
 	display: flex;
 	gap: 10px;
 	padding: 12px 30px;
 }
-.Account_history__qgCwN {
+.account__history {
 	max-width: 580px;
 }
-.Account_history__title__X1e2S {
+.account__history-title {
 	font-family: Comfortaa;
 	font-size: 26px;
 	font-weight: 700;
@@ -337,28 +330,28 @@ iframe {
 	height: 90vh;
 	justify-content: center;
 	width: 100%;
-}
-.Account_transaction__fgGIA {
+} // TODO
+.account__transaction {
 	display: flex;
 	flex-direction: column;
 	margin-top: 40px;
 	width: 100%;
 }
-.Account_transaction__title__5k3f- {
+.account__transaction-title {
 	margin-bottom: 40px;
 }
-.Account_transaction__form__mKYvj {
+.account__transaction-form {
 	align-items: flex-end;
 	display: flex;
 	justify-content: space-between;
 }
-.Account_transaction__input-wrap__ORoWP {
+.account__transaction-input-wrapper {
 	display: flex;
 	flex-direction: column;
 	width: 380px;
 }
-.Account_transaction__label__rsShR {
-	color: var(--text);
+.account__transaction-label {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
@@ -366,13 +359,13 @@ iframe {
 	margin-bottom: 2px;
 	padding-left: 15px;
 }
-.Account_transaction__input__rH-Ae {
-	border: 2px solid var(--pink);
+.account__transaction-input {
+	border: 2px solid $pink;
 	border-radius: 10px;
 	min-height: 70px;
 	padding: 20px;
 }
-.Account_button__3jGkT {
+.account__button {
 	font-family: Nunito;
 	font-size: 18px;
 	font-weight: 700;
@@ -380,136 +373,136 @@ iframe {
 	padding: 22.5px 143px;
 }
 @media (max-width: 768px) {
-	.Account_container__header__MABYz {
+	.account__container-header {
 		flex-direction: column-reverse;
 		gap: 15px;
 		margin-bottom: 30px;
 	}
-	.Account_title__oytHW {
+	.account__title {
 		font-size: 14px;
 	}
-	.Account_button__3jGkT {
+	.account__button {
 		font-size: 16px;
 		padding: 15px 30px;
 	}
-	.Account_dynamic__q70XE {
+	.account__dynamic {
 		margin-bottom: 30px;
 		margin-top: 0;
 	}
-	.Account_history__qgCwN {
+	.account__history {
 		margin-bottom: 30px;
 		max-width: 100%;
 	}
-	.Account_history__title__X1e2S {
+	.account__history-title {
 		font-size: 20px;
 		text-align: center;
 	}
-	.Account_transaction__fgGIA {
+	.account__transaction {
 		margin-top: 0;
 	}
-	.Account_transaction__title__5k3f- {
+	.account__transaction-title {
 		font-size: 20px;
 		margin-bottom: 20px;
 		text-align: center;
 	}
-	.Account_transaction__form__mKYvj {
+	.account__transaction-form {
 		flex-direction: column;
 		gap: 15px;
 	}
-	.Account_transaction__input-wrap__ORoWP {
+	.account__transaction-input-wrapper {
 		max-width: 100%;
 	}
-	.Account_button__3jGkT {
+	.account__button {
 		display: flex;
 		justify-content: center;
 		width: 100%;
 	}
 }
-.Table_table__container__-ExoA {
+.account__table-container {
 	max-height: 487px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-.Table_table__lsukp {
-	background-color: var(--header);
+.account__table-table {
+	background-color: $header;
 	border-radius: 10px;
 	padding: 20px;
 	width: 580px;
 }
-.Table_thead__tkFEQ {
-	color: var(--text);
+.account__table-thead {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 20px;
 }
-.Table_th__yQviT {
-	border-bottom: 1px solid var(--bgcolor);
+.account__table-th {
+	border-bottom: 1px solid $bgcolor;
 	padding: 10px 0 16px 20px;
 	text-align: left;
 }
-.Table_th__yQviT:first-child {
+.account__table-th:first-child {
 	padding-left: 0;
 }
-.Table_th__yQviT:nth-child(2) {
-	border-left: 1px solid var(--bgcolor);
-	border-right: 1px solid var(--bgcolor);
+.account__table-th:nth-child(2) {
+	border-left: 1px solid $bgcolor;
+	border-right: 1px solid $bgcolor;
 }
-.Table_th__yQviT:last-child {
+.account__table-th:last-child {
 	padding-left: 12px;
 }
-.Table_tbody__-S3Fd {
+.account__table-tbody {
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 20px;
 }
-.Table_td__HXWLH {
+.account__table-td {
 	padding: 12px 0;
 }
-.Table_td_middle__bXwqs {
-	border-left: 1px solid var(--bgcolor);
-	border-right: 1px solid var(--bgcolor);
+.account__table-td-middle {
+	border-left: 1px solid $bgcolor;
+	border-right: 1px solid $bgcolor;
 	padding-left: 20px;
 }
-.Table_td__date__0bfUN {
+.account__table-td-date {
 	padding-left: 12px;
 }
 @media (max-width: 768px) {
-	.Table_table__container__-ExoA {
+	.account__table-container {
 		max-height: 300px;
 		max-width: 100%;
 	}
-	.Table_table__lsukp {
+	.account__table-table {
 		max-width: 100%;
 		padding: 5px;
 	}
-	.Table_th__yQviT {
+	.account__table-th {
 		font-size: 14px;
 		max-width: 30%;
 		padding: 5px;
 	}
-	.Table_tbody__-S3Fd {
+	.account__table-tbody {
 		font-size: 12px;
 		max-width: 100%;
 	}
-	.Table_td__HXWLH {
+	.account__table-td {
 		max-width: 30%;
 		padding: 5px 0;
 	}
 }
-.Exchange_container__pUsrZ {
+.exchange__container {
 	padding-top: 60px;
 }
-.Exchange_title__xD-uT {
+.exchange__title {
 	font-family: Comfortaa;
 	font-size: 26px;
 	font-weight: 700;
 	line-height: 29px;
 	margin-bottom: 40px;
 }
-.Exchange_text__9DvKs {
-	color: var(--text);
+.exchange__text {
+	color: $text;
 	display: inline-block;
 	font-family: Nunito;
 	font-size: 15px;
@@ -518,24 +511,24 @@ iframe {
 	margin-bottom: 30px;
 	width: 70px;
 }
-.Exchange_text__9DvKs:first-of-type {
+.exchange__text:first-of-type {
 	margin-bottom: 15px;
 }
-.Exchange_text_white__lsYvt {
+.exchange__text-white {
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 20px;
 }
-.Exchange_balance__Bp6gG:after {
+.exchange__balance:after {
 	content: ' ₽';
 }
-.Exchange_wrapper__vGtDi {
+.exchange__wrapper {
 	display: flex;
 	justify-content: space-between;
 }
-.Exchange_rates__wrapper__sHiBR {
-	background: var(--header);
+.exchange__rates-wrapper {
+	background: $header;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -543,13 +536,13 @@ iframe {
 	overflow: hidden;
 	padding: 15px 60px 25px 20px;
 }
-.Exchange_rates__title__nV7pm {
+.exchange__rates-title {
 	font-family: Nunito;
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 27px;
 }
-.Exchange_tr_e__CgKO9 {
+.exchange__tr {
 	align-items: flex-end;
 	display: flex;
 	justify-content: space-between;
@@ -559,19 +552,19 @@ iframe {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-}
-.Exchange_td__first__6MLbU {
+} //TODO
+.exchange__td-first {
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 20px;
 	vertical-align: bottom;
 }
-.Exchange_td__second__7J\+zh {
-	border-bottom: 1px solid var(--bgcolor);
+.exchange__td-second {
+	border-bottom: 1px solid $bgcolor;
 	width: 100%;
 }
-.Exchange_td__third__WOTIX {
+.exchange__td-third {
 	align-items: center;
 	display: flex;
 	font-family: Nunito;
@@ -582,44 +575,44 @@ iframe {
 	line-height: 100%;
 	margin-top: 20px;
 }
-.Exchange_right__wrapper__kXr\+e {
+.exchange__right-wrapper {
 	display: flex;
 	flex-direction: column;
 }
-.Exchange_exchange__wrapper__H4XK5 {
-	background-color: var(--header);
+.exchange__right-wrapper {
+	background-color: $header;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 40px;
 	padding: 15px 20px 20px;
 }
-.Exchange_exchange__title__M\+Z\+Y {
+.exchange__right-title {
 	font-family: Nunito;
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 27px;
 	margin-bottom: 15px;
 }
-.Exchange_form__gPwQA {
+.exchange__form {
 	display: flex;
 	flex-direction: column;
 }
-.Exchange_inputs__wrapper__vShHt {
+.exchange__form-input {
 	display: flex;
 	margin-bottom: 25px;
 }
-.Exchange_input-wrapper__XZjjI {
+.exchange__form-input-wrapper {
 	display: flex;
 	flex-direction: column;
 	min-width: 150px;
 	position: relative;
 }
-.Exchange_input-wrapper__XZjjI:not(:last-of-type) {
+.exchange__form-input-wrapper:not(:last-of-type) {
 	margin-right: 35px;
 }
-.Exchange_label__8lbg3 {
-	color: var(--text);
+.exchange__form-label {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
@@ -627,14 +620,14 @@ iframe {
 	margin-bottom: 2px;
 	padding-left: 10px;
 }
-.Exchange_input__jpL1I {
+.exchange__form-select {
 	border-radius: 6px;
 	padding: 10px;
 }
-.Exchange_input__jpL1I:last-of-type {
+.exchange__form-select:last-of-type {
 	width: 147px;
 }
-.Exchange_button__VfyeB {
+.exchange__form-submit {
 	align-self: flex-end;
 	font-family: Nunito;
 	font-size: 18px;
@@ -643,7 +636,7 @@ iframe {
 	max-width: 150px;
 	padding: 6px 30px;
 }
-.Exchange_currency__title__owIkO {
+.exchange__right-th {
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
@@ -651,21 +644,21 @@ iframe {
 	padding-bottom: 10px;
 	text-align: left;
 }
-.Exchange_td__code__NW-NP {
-	color: var(--text);
+.exchange__right-td-code {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 20px;
 	width: 45px;
 }
-.Exchange_td__amount__aBkzX {
+.exchange__right-td-amount {
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 20px;
 }
-.Exchange_form__error__pV5i6 {
+.exchange__form-error {
 	color: tomato;
 	font-size: 12px;
 	position: absolute;
@@ -673,34 +666,34 @@ iframe {
 	top: -30px;
 }
 @media (max-width: 768px) {
-	.Exchange_wrapper__vGtDi {
+	.exchange__wrapper {
 		flex-direction: column;
 		gap: 20px;
 	}
-	.Exchange_rates__wrapper__sHiBR {
+	.exchange__rates-wrapper {
 		height: 330px;
 		padding-right: 20px;
 	}
-	.Exchange_rates__title__nV7pm {
+	.exchange__rates-title {
 		text-align: center;
 	}
-	.Exchange_inputs__wrapper__vShHt {
+	.exchange__form-input {
 		flex-direction: column;
 	}
-	.Exchange_input-wrapper__XZjjI:not(:last-of-type) {
+	.exchange__form-input-wrapper:not(:last-of-type) {
 		margin-right: 0;
 	}
-	.Exchange_input__jpL1I:last-of-type {
+	.exchange__form-select:last-of-type {
 		width: 100%;
 	}
 }
-.Auth_auth__container__wfp4f {
+.auth {
 	display: flex;
 	justify-content: center;
 	padding-top: 120px;
 }
-.Auth_auth__wrapper__kAWv0 {
-	background: var(--header);
+.auth__container {
+	background: $header;
 	border-radius: 10px;
 	display: flex;
 	height: 466px;
@@ -708,69 +701,79 @@ iframe {
 	padding: 50px 0;
 	width: 580px;
 }
-.Auth_form__UlHVT {
+.auth__form {
 	display: flex;
 	flex-direction: column;
 }
-.Auth_form__title__r5eX8 {
+.auth__form-title {
 	font-family: Comfortaa;
 	font-size: 38px;
 	font-weight: 700;
 	line-height: 42px;
 	margin-bottom: 20px;
 }
-.Auth_form__input-wrapper__O5-dR {
+.auth__form-input-wrapper {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 30px;
 	position: relative;
 }
-.Auth_form__error__MUAaN {
+.auth__form-error {
 	bottom: 5px;
 	color: red;
 	font-size: 14px;
 	position: absolute;
 	right: 10px;
 }
-.Auth_form__input-wrapper__O5-dR:not(:last-of-type) {
+.auth__form-input-wrapper:not(:last-of-type) {
 	margin-bottom: 20px;
 }
-.Auth_form__label__LfZbr {
-	color: var(--text);
+.auth__form-label {
+	color: $text;
 	font-family: Nunito;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 20px;
 	margin-bottom: 2px;
 }
-.Auth_form__input__rmwCS {
-	border: 2px solid var(--pink);
+.auth__form-input {
+	border: 2px solid $pink;
 	border-radius: 10px;
 	padding: 20px;
 }
-.Auth_form__button__fIzMy {
+.auth__form-button {
 	font-family: Nunito;
 	font-size: 18px;
 	font-weight: 700;
 	line-height: 25px;
 	padding: 22.5px 0;
 }
-.Footer_footer__kXlYa {
-	align-items: center;
+.footer {
 	bottom: 50px;
-	display: flex;
-	justify-content: space-between;
 	position: absolute;
 	width: 100%;
+
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	&__copy {
+		margin-right: 160px;
+	}
 }
+
+// .footer__copy {
+// 	margin-left: 800px;
+// }
 @media (max-width: 768px) {
-	.Footer_logo__\+JiYo {
+	// TODO
+	.Footer_logo__\+JiYo { 
 		max-width: 100px;
 	}
-	.Footer_copy__V37yO {
+	.footer__copy {
+		margin-right: 40px;
 		font-size: 14px;
 	}
-	.Footer_footer__kXlYa {
+	.footer {
 		bottom: 20px;
 		width: 90%;
 	}

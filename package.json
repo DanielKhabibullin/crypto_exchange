@@ -40,6 +40,8 @@
 		"webpack-dev-server": "^4.13.3"
 	},
 	"dependencies": {
-		"normalize.css": "^8.0.1"
+		"navigo": "^8.11.1",
+		"normalize.css": "^8.0.1",
+		"redom": "^3.29.1"
 	}
 }
