@@ -747,6 +747,11 @@ iframe {
 	font-weight: 700;
 	line-height: 25px;
 	padding: 22.5px 0;
+	
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 }
 .footer {
 	bottom: 50px;

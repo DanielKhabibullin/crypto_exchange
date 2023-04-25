@@ -54,7 +54,7 @@ export const renderLogin2 = () => {
 	const container = el('.auth__container', form);
 	const auth = el('.auth', container);
 
-	mount(document.querySelector('.main'), auth);
+	mount(main, auth);
 	const loginErrorEl = auth.querySelector('.auth__form-input-wrapper:nth-child(1) .auth__form-error');
 	const loginInputEl = auth.querySelector('.auth__form-input[name="login"]');
 	const passwordErrorEl = auth.querySelector('.auth__form-input-wrapper:nth-child(2) .auth__form-error');
@@ -64,31 +64,37 @@ export const renderLogin2 = () => {
 	return {loginErrorEl, loginInputEl, passwordErrorEl, passwordInputEl, submitButtonEl};
 };
 
-// const auth = createElement('div', {className: 'auth'});
+const auth = createElement('div', {className: 'auth'});
 
-// const container = createElement('div', {className: 'auth__container'}, {parent: auth});
+const container = createElement('div', {className: 'auth__container'}, {parent: auth});
 
-// export const form = createElement('form',
-// 	{className: 'auth__form'},
-// 	{parent: container},
-// );
-// createElement('legend', {className: 'auth__form-title', textContent: `Вход в аккаунт`}, {parent: form});
-// const loginWrapper = createElement('div', {className: 'auth__form-input-wrapper'}, {parent: form});
-// createElement('span', {className: 'auth__form-error'}, {parent: loginWrapper});
-// createElement('label', {className: 'auth__form-label', textContent: 'Логин'}, {parent: loginWrapper});
-// export const loginInput = createElement('input', {className: 'auth__form-input', name: 'login', placeholder: 'Введите логин'}, {parent: loginWrapper});
+export const form = createElement('form',
+	{className: 'auth__form'},
+	{parent: container},
+);
+createElement('legend', {className: 'auth__form-title', textContent: `Вход в аккаунт`}, {parent: form});
+const loginWrapper = createElement('div', {className: 'auth__form-input-wrapper'},
+	{
+		parent: form,
+		appends: [
 
-// const passwordWrapper = createElement('div', {className: 'auth__form-input-wrapper'}, {parent: form});
+		],
+	});
+createElement('label', {className: 'auth__form-label', textContent: 'Логин'}, {parent: loginWrapper});
+export const loginInput = createElement('input', {className: 'auth__form-input', name: 'login', placeholder: 'Введите логин'}, {parent: loginWrapper});
+export const loginError = createElement('span', {className: 'auth__form-error'}, {parent: loginWrapper});
 
-// createElement('span', {className: 'auth__form-error'}, {parent: passwordWrapper});
-// createElement('label', {className: 'auth__form-label', textContent: 'Пароль'}, {parent: passwordWrapper});
+const passwordWrapper = createElement('div', {className: 'auth__form-input-wrapper'}, {parent: form});
 
-// export const passwordInput = createElement('input', {className: 'auth__form-input', type: 'password', name: 'password', placeholder: 'Введите пароль'}, {parent: passwordWrapper});
+export const passwordError = createElement('div', {className: 'auth__form-error'}, {parent: passwordWrapper});
+createElement('label', {className: 'auth__form-label', textContent: 'Пароль'}, {parent: passwordWrapper});
 
-// export const submitButton = createElement('button', {className: 'auth__form-button  button', textContent: 'Войти', type: 'submit'}, {parent: form});
+export const passwordInput = createElement('input', {className: 'auth__form-input', type: 'password', name: 'password', placeholder: 'Введите пароль'}, {parent: passwordWrapper});
 
-// export const renderLogin = () => {
-	// main.innerHTML = ''; // TODO
-// 	main.append(auth);
-// };
+export const submitButton = createElement('button', {className: 'auth__form-button  button', textContent: 'Войти', type: 'submit'}, {parent: form});
+
+export const renderLogin = () => {
+	main.innerHTML = ''; // TODO
+	main.append(auth);
+};
 

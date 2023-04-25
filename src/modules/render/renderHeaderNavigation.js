@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-export const renderHeaderNavigation = () => {
+export const renderHeaderNavigation = (page) => {
 	const header = document.querySelector('.header');
 	header.innerHTML = `
 	<div class="layout">
@@ -19,8 +19,8 @@ export const renderHeaderNavigation = () => {
 					</svg>
 				</a>
 			<ul class="header__navigation">
-				<a element="[object Object]" aria-current="page" class="active" href="/currencies">Счета</a>
-				<a element="[object Object]" class="" href="/exchange">Обмен</a>
+				<a element="[object Object]" aria-current="page" class="${page === 'currencies' ? 'active' : ''}" href="#/currencies">Счета</a>
+				<a element="[object Object]" class="${page === 'exchange' ? 'active' : ''}" href="#/exchange">Обмен</a>
 				<button class="header__navigation-exit">
 					Выйти
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__navigation-arrow">

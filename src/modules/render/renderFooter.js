@@ -1,5 +1,4 @@
 /* eslint-disable no-tabs */
-// import {el, setChildren} from 'redom';
 /* eslint-disable max-len */
 export const renderFooter = () => {
 	const footer = document.querySelector('.footer');
