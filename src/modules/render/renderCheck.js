@@ -1,8 +1,9 @@
 import {el, mount} from 'redom';
+import {main} from '../../index.js';
 /* eslint-disable max-len */
-const main = document.querySelector('.main');
 
 export const renderCheck1 = () => {
+	main.innerHTML = '';
 	main.innerHTML = `
 	<div class="account__container">
 		<div class="account__container-header">
@@ -65,6 +66,7 @@ export const renderCheck1 = () => {
 };
 
 export const renderCheck = () => {
+	main.innerHTML = '';
 	const account = el('.account__container',
 		el('.account__container-header',
 			el('h2.account__title', 'Счет №24051911200915061003240821'),

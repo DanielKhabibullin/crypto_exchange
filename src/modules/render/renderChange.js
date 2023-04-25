@@ -1,8 +1,8 @@
 import {el, mount} from 'redom';
+import {main} from '../../index.js';
 /* eslint-disable max-len */
 
 export const renderChange1 = () => {
-	const main = document.querySelector('.main');
 	main.innerHTML = `
 	<div class="exchange__container">
 				<h2 class="exchange__title">Обмен валюты</h2>
@@ -98,6 +98,7 @@ export const renderChange1 = () => {
 };
 
 export const renderChange = () => {
+	main.innerHTML = '';
 	const exchange = el('.exchange__container',
 		el('h2.exchange__title', 'Обмен валюты'),
 		el('span.exchange__text', 'Счет'),
@@ -172,7 +173,7 @@ export const renderChange = () => {
 	const amountInput = exchange.querySelector('input[name="amount"]');
 	const submitButton = exchange.querySelector('.exchange__form-submit');
 
-	mount(document.querySelector('.main'), exchange);
+	mount(main, exchange);
 
 	return {amountInput, submitButton};
 };

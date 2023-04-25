@@ -4,14 +4,17 @@ import {router} from './modules/router.js';
 import {renderChange} from './modules/render/renderChange.js';
 import {renderCheck} from './modules/render/renderCheck.js';
 import {renderFooter} from './modules/render/renderFooter.js';
-import {renderHeader} from './modules/render/renderHeader.js';
 import {renderHeaderNavigation} from
 	'./modules/render/renderHeaderNavigation.js';
-import {renderLogin, renderLogin2} from './modules/render/renderLogin.js';
-import {renderMain, renderMain1} from './modules/render/renderMain.js';
-import { loginPageController } from './modules/controllers/loginPageController.js';
+import {loginPageController,
+} from './modules/controllers/loginPageController.js';
+import {loadFromSessionStorage} from './modules/storage.js';
+import {currenciesPageController,
+} from './modules/controllers/currenciesPageController.js';
 
 export const urlApi = 'http://localhost:3000';
+export const main = document.querySelector('.main');
+
 
 const init = async () => {
 	router.on({
@@ -21,19 +24,24 @@ const init = async () => {
 		'auth': () => {
 			loginPageController();
 		},
-		'/': () => {
-			renderHeaderNavigation();
-			renderMain();
-		},
+
 		'currencies': () => {
-			renderHeaderNavigation('currencies');
-			renderMain1();
+			const token = loadFromSessionStorage('token');
+			if (!token) {
+				router.navigate('/auth');
+			}
+			const accountsData = loadFromSessionStorage('accountsData');
+			currenciesPageController(accountsData);
 		},
 		'exchange': () => {
 			renderHeaderNavigation('exchange');
 			renderChange();
 		},
-		'account': () => {
+		'accounts': () => {
+			const token = loadFromSessionStorage('token');
+			if (!token) {
+				router.navigate('/auth');
+			}
 			renderHeaderNavigation();
 			renderCheck();
 		},
