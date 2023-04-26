@@ -1,10 +1,12 @@
 import {el} from 'redom';
 
 export const renderAccountItem = (account) => {
-	const lastTransaction = account.transactions ?
-	new Date(account.transactions[0]?.date).toLocaleString() :
-	'Транзакций не было';
-	// TODO
+	let lastTransaction = 'Транзакций не было';
+	if (account.transactions.length > 0) {
+		lastTransaction = new Date(account.transactions[0].date).
+			toLocaleDateString();
+	}
+	const openDate = new Date(account.date).toLocaleDateString();
 
 	const item = el('li.currencies__list-card',
 		el('a', {href: `#/account/${account.account}`},
@@ -13,7 +15,7 @@ export const renderAccountItem = (account) => {
 			el('div.currencies__list-card-info',
 				el('div',
 					el('p', 'открыт'),
-					el('p', '10.03.2016'),
+					el('p', `${account.date ? openDate : '19.06.22'}`),
 				),
 				el('div',
 					el('p', 'последняя операция'),

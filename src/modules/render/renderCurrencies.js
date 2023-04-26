@@ -117,7 +117,7 @@ export const currenciesSelect = createElement('select',
 			<option id="account">Номер счёта</option>
 			<option id="balance">Баланс</option>
 			<option id="date">Дата открытия</option>
-			<option id="last">Дата последней транзакции</option>
+			<option id="transaction">Дата последней транзакции</option>
 		`,
 	},
 	{

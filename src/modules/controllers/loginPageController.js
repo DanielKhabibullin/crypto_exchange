@@ -56,9 +56,8 @@ export const loginPageController = () => {
 				return getUserAccounts(res.payload.token);
 			})
 			.then((res) => {
-				router.navigate('currencies');
+				window.location.hash = '#/currencies';
 				saveToSessionStorage('accountsData', res.payload);
-				console.log(res.payload);
 				currenciesPageController(res.payload);
 			})
 			.catch((err) => {

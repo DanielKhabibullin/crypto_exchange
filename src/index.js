@@ -19,6 +19,10 @@ export const main = document.querySelector('.main');
 const init = async () => {
 	router.on({
 		'*': () => {
+			const token = loadFromSessionStorage('token');
+			if (!token) {
+				router.navigate('/auth');
+			}
 			renderFooter();
 		},
 		'auth': () => {
@@ -26,10 +30,6 @@ const init = async () => {
 		},
 
 		'currencies': () => {
-			const token = loadFromSessionStorage('token');
-			if (!token) {
-				router.navigate('/auth');
-			}
 			const accountsData = loadFromSessionStorage('accountsData');
 			currenciesPageController(accountsData);
 		},
@@ -38,10 +38,6 @@ const init = async () => {
 			renderChange();
 		},
 		'accounts': () => {
-			const token = loadFromSessionStorage('token');
-			if (!token) {
-				router.navigate('/auth');
-			}
 			renderHeaderNavigation();
 			renderCheck();
 		},
