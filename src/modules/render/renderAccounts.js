@@ -56,7 +56,7 @@ export const renderCurrencies2 = () => {
 	`;
 };
 
-const currencies = createElement('div',
+const accounts = createElement('div',
 	{
 		className: 'currencies__container',
 	},
@@ -76,16 +76,16 @@ export const createAccountBtn = createElement('button',
 		textContent: 'Открыть новый счет',
 	},
 	{
-		parent: currencies,
+		parent: accounts,
 	},
 );
 
-const currenciesWrapper = createElement('div',
+const accountsWrapper = createElement('div',
 	{
 		className: 'currencies__wrapper',
 	},
 	{
-		parent: currencies,
+		parent: accounts,
 		append: createElement('h3',
 			{
 				className: 'currencies__wrapper-title',
@@ -95,12 +95,12 @@ const currenciesWrapper = createElement('div',
 	},
 );
 
-const currenciesSort = createElement('div',
+const accountsSort = createElement('div',
 	{
 		className: 'currencies__sort',
 	},
 	{
-		parent: currenciesWrapper,
+		parent: accountsWrapper,
 		append: createElement('span',
 			{
 				className: 'currencies__sort-title',
@@ -110,7 +110,7 @@ const currenciesSort = createElement('div',
 	},
 );
 
-export const currenciesSelect = createElement('select',
+export const accountsSelect = createElement('select',
 	{
 		className: 'currencies__sort-select',
 		innerHTML: `
@@ -121,21 +121,21 @@ export const currenciesSelect = createElement('select',
 		`,
 	},
 	{
-		parent: currenciesSort,
+		parent: accountsSort,
 	},
 );
 
-export const currenciesList = createElement('div',
+export const accountsList = createElement('div',
 	{
 		className: 'currencies__list',
 	},
 	{
-		parent: currenciesWrapper,
+		parent: accountsWrapper,
 	},
 );
 
 
-export const renderCurrencies = () => {
+export const renderAccounts = () => {
 	main.innerHTML = '';
-	main.append(currencies);
+	main.append(accounts);
 };

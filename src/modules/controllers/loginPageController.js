@@ -3,10 +3,9 @@ import {getUserAccounts, getUserToken} from '../fetch.js';
 import {renderHeader} from '../render/renderHeader.js';
 import {form, loginError, loginInput, passwordError, passwordInput,
 	renderLogin, submitButton} from '../render/renderLogin.js';
-import {router} from '../router.js';
 import {saveToSessionStorage} from '../storage.js';
 import {validateLogin, validatePassword} from '../tools/validate.js';
-import {currenciesPageController} from './currenciesPageController.js';
+import {accountsPageController} from './accountsPageController.js';
 
 export const loginPageController = () => {
 	window.localStorage.clear();
@@ -56,9 +55,9 @@ export const loginPageController = () => {
 				return getUserAccounts(res.payload.token);
 			})
 			.then((res) => {
-				window.location.hash = '#/currencies';
+				window.location.hash = '#/accounts';
 				saveToSessionStorage('accountsData', res.payload);
-				currenciesPageController(res.payload);
+				accountsPageController(res.payload);
 			})
 			.catch((err) => {
 				console.log(err.message);

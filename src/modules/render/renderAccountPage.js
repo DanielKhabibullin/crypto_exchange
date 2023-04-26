@@ -1,3 +1,9 @@
+
+export const renderAccountPage = (accountData) => {
+
+};
+
+
 import {el, mount} from 'redom';
 import {main} from '../../index.js';
 /* eslint-disable max-len */
@@ -8,7 +14,7 @@ export const renderCheck1 = () => {
 	<div class="account__container">
 		<div class="account__container-header">
 			<h2 class="account__title">Счет №24051911200915061003240821</h2>
-			<a class="account__button button" element="[object Object]" href="/currencies">
+			<a class="account__button button" element="[object Object]" href="/accounts">
 				<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M3.83 5.5L7.41 1.91L6 0.5L0 6.5L6 12.5L7.41 11.09L3.83 7.5L16 7.5V5.5L3.83 5.5Z" fill="white"></path>
 				</svg>
@@ -70,7 +76,7 @@ export const renderCheck = () => {
 	const account = el('.account__container',
 		el('.account__container-header',
 			el('h2.account__title', 'Счет №24051911200915061003240821'),
-			el('a.account__button.button', {href: '/currencies'},
+			el('a.account__button.button', {href: '/accounts'},
 				el('svg', {innerHTML: `
 					<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M3.83 5.5L7.41 1.91L6 0.5L0 6.5L6 12.5L7.41 11.09L3.83 7.5L16 7.5V5.5L3.83 5.5Z" fill="white"></path>

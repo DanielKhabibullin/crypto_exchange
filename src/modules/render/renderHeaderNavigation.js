@@ -19,7 +19,7 @@ export const renderHeaderNavigation = (page) => {
 					</svg>
 				</a>
 			<ul class="header__navigation">
-				<a element="[object Object]" aria-current="page" class="${page === 'currencies' ? 'active' : ''}" href="#/currencies">Счета</a>
+				<a element="[object Object]" aria-current="page" class="${page === 'accounts' ? 'active' : ''}" href="#/accounts">Счета</a>
 				<a element="[object Object]" class="${page === 'exchange' ? 'active' : ''}" href="#/exchange">Обмен</a>
 				<button class="header__navigation-exit">
 					Выйти

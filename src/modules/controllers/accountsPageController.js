@@ -1,14 +1,14 @@
 import {createNewAccount, getUserAccounts} from '../fetch.js';
 import {renderAccountItem} from '../render/renderAccountItem.js';
-import {createAccountBtn, currenciesList, currenciesSelect, renderCurrencies,
-} from '../render/renderCurrencies.js';
+import {createAccountBtn, accountsList, accountsSelect, renderAccounts,
+} from '../render/renderAccounts.js';
 import {renderHeaderNavigation} from '../render/renderHeaderNavigation.js';
 import {loadFromSessionStorage} from '../storage.js';
 import {sortBy} from '../tools/sort.js';
 
-export const currenciesPageController = async (accountsData) => {
-	renderHeaderNavigation('currencies');
-	renderCurrencies();
+export const accountsPageController = async (accountsData) => {
+	renderHeaderNavigation('accounts');
+	renderAccounts();
 
 	createAccountBtn.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -17,7 +17,7 @@ export const currenciesPageController = async (accountsData) => {
 		// TODO preloader;
 		createNewAccount(token)
 			.then((res) => {
-				currenciesList.append(renderAccountItem(res.payload));
+				accountsList.append(renderAccountItem(res.payload));
 			})
 			.catch((err) => {
 				console.log(err.message);
@@ -28,22 +28,21 @@ export const currenciesPageController = async (accountsData) => {
 			});
 	});
 	await accountsData.forEach((account) => {
-		currenciesList.append(renderAccountItem(account));
+		accountsList.append(renderAccountItem(account));
 	});
 
 	// TODO select sort
-	currenciesSelect.addEventListener('change', () => {
-		const selectedOption = currenciesSelect.querySelector('option:checked');
-		const selectedOptionId = selectedOption.id;
+	accountsSelect.addEventListener('change', () => {
+		const selectedOption = accountsSelect.querySelector('option:checked').id;
 		const token = loadFromSessionStorage('token');
-
+		// TODO change date for 1 account
 		// TODO preloader;
 		getUserAccounts(token)
-			.then((res) => sortBy(res.payload, selectedOptionId))
+			.then((res) => sortBy(res.payload, selectedOption))
 			.then((res) => {
-				currenciesList.innerHTML = '';
+				accountsList.innerHTML = '';
 				res.forEach((account) => {
-					currenciesList.append(renderAccountItem(account));
+					accountsList.append(renderAccountItem(account));
 				});
 			})
 			.catch((err) => {
