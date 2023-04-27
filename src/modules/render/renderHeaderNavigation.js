@@ -5,7 +5,7 @@ export const renderHeaderNavigation = (page) => {
 	header.innerHTML = `
 	<div class="layout">
 		<div class="header__container">
-			<a href="/auth">
+			<a href="/#/auth">
 				<svg width="139" height="38" viewBox="0 0 139 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__logo-image">
 					<mask id="path-1-inside-1_205_418" fill="white">
 						<rect width="25" height="25" rx="1"></rect>
@@ -19,8 +19,8 @@ export const renderHeaderNavigation = (page) => {
 					</svg>
 				</a>
 			<ul class="header__navigation">
-				<a element="[object Object]" aria-current="page" class="${page === 'accounts' ? 'active' : ''}" href="#/accounts">Счета</a>
-				<a element="[object Object]" class="${page === 'exchange' ? 'active' : ''}" href="#/exchange">Обмен</a>
+				<a aria-current="page" class="${page === 'accounts' ? 'active' : ''}" href="#/accounts">Счета</a>
+				<a class="${page === 'exchange' ? 'active' : ''}" href="#/exchange">Обмен</a>
 				<button class="header__navigation-exit">
 					Выйти
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__navigation-arrow">

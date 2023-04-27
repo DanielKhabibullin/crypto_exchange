@@ -1,8 +1,6 @@
 import './index.html';
 import './index.scss';
 import {router} from './modules/router.js';
-import {renderChange} from './modules/render/renderChange.js';
-
 import {renderFooter} from './modules/render/renderFooter.js';
 import {renderHeaderNavigation} from
 	'./modules/render/renderHeaderNavigation.js';
@@ -12,6 +10,8 @@ import {loadFromSessionStorage} from './modules/storage.js';
 import {renderCheck} from './modules/render/renderAccountPage.js';
 import {accountsPageController,
 } from './modules/controllers/accountsPageController.js';
+import {exchangePageController,
+} from './modules/controllers/exchangePageController.js';
 
 export const urlApi = 'http://localhost:3000';
 export const main = document.querySelector('.main');
@@ -35,8 +35,7 @@ const init = async () => {
 			accountsPageController(accountsData);
 		},
 		'exchange': () => {
-			renderHeaderNavigation('exchange');
-			renderChange();
+			exchangePageController();
 		},
 		'currencies': () => {
 			renderHeaderNavigation();

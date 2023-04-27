@@ -5,7 +5,7 @@ export const renderHeader = () => {
 	header.innerHTML = `
 	<div class="layout">
 		<div class="header__container">
-			<a href="/auth">
+			<a href="/#/auth">
 				<svg class="header__logo-image" width="139" height="38" viewBox="0 0 139 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<mask id="path-1-inside-1_205_418" fill="white">
 						<rect width="25" height="25" rx="1"></rect>

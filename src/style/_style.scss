@@ -501,6 +501,15 @@ iframe {
 	line-height: 29px;
 	margin-bottom: 40px;
 }
+
+.exchange__account-info {
+	margin-bottom: 10px;
+}
+
+.exchange__balance-info {
+	margin-top: 10px;
+}
+
 .exchange__text {
 	color: $text;
 	display: inline-block;
@@ -525,6 +534,7 @@ iframe {
 }
 .exchange__wrapper {
 	display: flex;
+	gap: 15px;
 	justify-content: space-between;
 }
 .exchange__rates-wrapper {
@@ -532,7 +542,7 @@ iframe {
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
-	height: 350px;
+	height: 100%;
 	overflow: hidden;
 	padding: 15px 60px 25px 20px;
 }
@@ -579,7 +589,7 @@ iframe {
 	display: flex;
 	flex-direction: column;
 }
-.exchange__right-wrapper {
+.exchange__form-wrapper {
 	background-color: $header;
 	border-radius: 10px;
 	display: flex;
@@ -587,7 +597,7 @@ iframe {
 	margin-bottom: 40px;
 	padding: 15px 20px 20px;
 }
-.exchange__right-title {
+.exchange__form-title {
 	font-family: Nunito;
 	font-size: 20px;
 	font-weight: 600;
@@ -671,7 +681,7 @@ iframe {
 		gap: 20px;
 	}
 	.exchange__rates-wrapper {
-		height: 330px;
+		max-height: 100%;
 		padding-right: 20px;
 	}
 	.exchange__rates-title {
