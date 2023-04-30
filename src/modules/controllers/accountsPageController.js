@@ -2,12 +2,12 @@ import {createNewAccount, getUserAccounts} from '../fetch.js';
 import {renderAccountItem} from '../render/renderAccountItem.js';
 import {createAccountBtn, accountsList, accountsSelect, renderAccounts,
 } from '../render/renderAccounts.js';
-import {renderHeaderNavigation} from '../render/renderHeaderNavigation.js';
+import {renderHeader} from '../render/renderHeader.js';
 import {loadFromSessionStorage} from '../storage.js';
 import {sortBy} from '../tools/sort.js';
 
 export const accountsPageController = async (accountsData) => {
-	renderHeaderNavigation('accounts');
+	renderHeader('accounts');
 	renderAccounts();
 
 	createAccountBtn.addEventListener('click', (e) => {

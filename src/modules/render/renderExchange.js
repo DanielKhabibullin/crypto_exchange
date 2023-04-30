@@ -95,7 +95,7 @@ export const renderExchangeFormWrapper = async () => {
 };
 
 export const renderTable = async (currencies) => {
-	const table = el('div',
+	const table = el('div.exchange__table',
 		el('table',
 			el('thead',
 				el('tr',

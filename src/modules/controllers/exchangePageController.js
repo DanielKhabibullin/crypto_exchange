@@ -1,7 +1,7 @@
 import {createCurrencyBuy, getUserCurrencies} from '../fetch.js';
 import {renderExchange, renderExchangeFormWrapper,
 	renderTable} from '../render/renderExchange.js';
-import {renderHeaderNavigation} from '../render/renderHeaderNavigation.js';
+import {renderHeader} from '../render/renderHeader.js';
 import {loadFromSessionStorage} from '../storage.js';
 
 const showError = (message) => {
@@ -37,7 +37,7 @@ export const exchangePageController = async () => {
 	exchangeSubmit.setAttribute('disabled', 'true');
 
 	renderExchange(formResult, currencies);
-	renderHeaderNavigation('exchange');
+	renderHeader('exchange');
 
 	fromSelect.addEventListener('change', () => {
 		const fromCurrency = fromSelect.value;
@@ -109,6 +109,11 @@ export const exchangePageController = async () => {
 				table.parentNode.replaceChild(updatedTable, table);
 			}
 			showSuccess('Обмен выполнен успешно');
+			const form = document.querySelector('.exchange__form');
+			form.reset();
+			fromSelect.value = response.defaultCurrency;
+			toSelect.value = response.defaultCurrency;
+			exchangeSubmit.setAttribute('disabled', 'true');
 		} catch (error) {
 			showError('Произошла ошибка при обмене валют');
 			console.error(error);
