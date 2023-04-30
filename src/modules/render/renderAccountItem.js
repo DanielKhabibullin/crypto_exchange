@@ -11,7 +11,8 @@ export const renderAccountItem = (account) => {
 	}
 	const openDate = new Date(account.date).toLocaleDateString();
 
-	const link = el('a', {href: `#/account/${account.account}`},
+	const link = el('a.currencies__list-link',
+		{href: `#/account/${account.account}`},
 		el('p.currencies__list-card-id', `${account.account}`),
 		el('p.currencies__list-card-balance', `${account.balance} `),
 		el('div.currencies__list-card-info',

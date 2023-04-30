@@ -1,9 +1,3 @@
-
-export const renderAccountPage = (accountData) => {
-
-};
-
-
 import {el, mount} from 'redom';
 import {main} from '../../index.js';
 /* eslint-disable max-len */
@@ -136,4 +130,67 @@ export const renderCheck = () => {
 	);
 
 	mount(main, account);
+};
+
+export const renderAccountPage = (accountData) => {
+	const backButton = el('a.account__button.button', {href: '/#/accounts'}, [
+		el('svg', {
+			innerHTML: `
+				<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M3.83 5.5L7.41 1.91L6 0.5L0 6.5L6 12.5L7.41 11.09L3.83 7.5L16 7.5V5.5L3.83 5.5Z" fill="white"></path>
+				</svg>
+			`,
+		}),
+	],
+	'Вернуться',
+	);
+
+	const dynamicTitle = el('h3.account__dynamic-title', 'Динамика');
+	const dynamicYear = el('span.account__dynamic-year', accountData.date?.slice(0, 4));
+	const yearOptions = ['Год', '2023', '2022', '2021', '2020'];
+	const yearSelect = el('select.account__dynamic-select', yearOptions.map((year) => el('option', {text: year, hidden: year === 'Год'})));
+	const accountDynamicHeader = el('div.account__dynamic-header', [dynamicTitle, dynamicYear, yearSelect]);
+
+	const historyTitle = el('h3.account__history-title', 'История переводов');
+	// const historyTransactions = accountData.transactions.slice(0, 9);
+
+	const table = el('table.account__table-table', [
+		el('thead.account__table-thead', el('tr', [
+			el('th.account__table-th', 'Счет'),
+			el('th.account__table-th', 'Сумма'),
+			el('th.account__table-th', 'Дата'),
+		])),
+		el('tbody.account__table-tbody', accountData.transactions.map((transaction) =>
+			el('tr', [
+				el('td.account__table-td.undefined', transaction.from),
+				el('td.account__table-td.account__table-td-middle', transaction.amount),
+				el('td.account__table-td.account__table-td-date', new Date(transaction.date).toLocaleDateString()),
+			]),
+		)),
+	]);
+	const tableContainer = el('div.account__table-container', table);
+	const accountHistory = el('div.account__history', [historyTitle, tableContainer]);
+
+	const form = el('form.account__transaction-form', [
+		el('div.account__transaction-input-wrapper', [
+			el('label.account__transaction-label', 'Счет'),
+			el('input.account__transaction-input', {name: 'to'}),
+		]),
+		el('div.account__transaction-input-wrapper', [
+			el('label.account__transaction-label', 'Сумма'),
+			el('input.account__transaction-input', {name: 'amount'}),
+		]),
+		el('button.account__button.button', 'Перевести', {type: 'submit'}),
+	]);
+	const transactionTitle = el('h3.account__title.account__transaction-title', 'Перевод');
+	const accountTransaction = el('div.account__transaction', [transactionTitle, form]);
+
+
+	const accountTitle = el('h2.account__title', `Счет №${accountData.account}`);
+	const accountDynamic = el('div.account__dynamic', [accountDynamicHeader]);
+
+	const accountHeader = el('div.account__container-header', [accountTitle, backButton]);
+	const accountContainer = el('div.account__container', [accountHeader, accountDynamic, accountHistory, accountTransaction]);
+
+	mount(main, accountContainer);
 };

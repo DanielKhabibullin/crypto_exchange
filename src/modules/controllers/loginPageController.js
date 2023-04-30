@@ -13,6 +13,8 @@ export const loginPageController = () => {
 	renderHeader();
 	renderLogin();
 	submitButton.disabled = true;
+	loginInput.value = '';
+	passwordInput.value = '';
 
 	loginInput.addEventListener('input', e => {
 		const loginValue = e.target.value.trim();
