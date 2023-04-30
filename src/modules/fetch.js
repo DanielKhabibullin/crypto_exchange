@@ -77,7 +77,18 @@ export const getUserCurrencies = async (token) => {
 			'Content-Type': 'application/json',
 		},
 	});
-	return response.json();
+	const {payload, error} = await response.json();
+
+	if (error) {
+		throw new Error(error);
+	}
+
+	// Filter out accounts with zero or negative balance
+	const filteredPayload = Object.fromEntries(
+		Object.entries(payload).filter(([code, {amount}]) => amount > 0),
+	);
+
+	return {payload: filteredPayload, error: ''};
 };
 
 export const getCurrencyFeed = async (token) => {

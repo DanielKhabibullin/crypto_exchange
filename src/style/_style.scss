@@ -645,6 +645,11 @@ iframe {
 	line-height: 25px;
 	max-width: 150px;
 	padding: 6px 30px;
+	
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 }
 .exchange__right-th {
 	font-family: Nunito;
@@ -670,6 +675,13 @@ iframe {
 }
 .exchange__form-error {
 	color: tomato;
+	font-size: 12px;
+	position: absolute;
+	right: 0;
+	top: -30px;
+}
+
+.exchange__form-success {
 	font-size: 12px;
 	position: absolute;
 	right: 0;
