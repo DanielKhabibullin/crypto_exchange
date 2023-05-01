@@ -67,6 +67,18 @@ iframe {
 	border: none;
 	border-radius: 10px;
 	color: #fff;
+	transition: background-color .3s ease-in-out;
+
+
+	&:hover {
+		background: linear-gradient(88.2deg, #A400BE -14.85%, #8100BD 50.2%, #2E00B1 115.25%, #2E00B1 115.25%);
+	}
+	&:focus {
+		background: linear-gradient(88.2deg, #2E00B1 -14.85%, #A400BE 50.2%, #2E00B1 115.25%, #2E00B1 115.25%);
+	}
+	&:active {
+		background: #2E00B1
+	}
 }
 .active {
 	color: #c6b6d7;
@@ -75,55 +87,62 @@ iframe {
 .header {
 	background-color: $header;
 	padding: 20px 0;
-}
-.header__container {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-}
-.header__navigation {
-	gap: 30px;
-}
-.header__navigation-exit,
-.header__navigation {
-	display: flex;
-	font-family: Nunito;
-	font-size: 15px;
-	font-weight: 700;
-	line-height: 20px;
-}
-.header__navigation-exit {
-	align-items: center;
-	background-color: initial;
-	border: none;
-	color: #fff;
-	gap: 5px;
-}
-@media (max-width: 768px) {
-	.header {
+	
+	&__container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	&__navigation {
+		gap: 30px;
+		display: flex;
+		font-family: Nunito;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 20px;
+		
+		&-exit {
+			display: flex;
+			font-family: Nunito;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 20px;
+			align-items: center;
+			background-color: initial;
+			border: none;
+			color: #fff;
+			gap: 5px;
+		}
+	}
+	
+	@include tablet {
 		padding: 10px 0;
-	}
-	.header__navigation {
-		font-size: 12px;
-		gap: 15px;
-	}
-	.header__navigation-exit {
-		font-size: 12px;
-	}
-	.header__logo-image {
-		max-width: 100px;
-	}
-	.header__navigation-arrow {
-		max-width: 10px;
+		
+		&__navigation {
+			font-size: 12px;
+			gap: 15px;
+			
+			&-exit {
+				font-size: 12px;
+			}
+		}
+		
+		&__logo-image {
+			max-width: 100px;
+		}
+		
+		&__navigation-arrow {
+			max-width: 10px;
+		}
 	}
 }
 .layout {
 	margin: 0 auto;
-	max-width: 1240px;
-	padding: 0 15px;
-}
-@media (min-width: 768px) {
-	.layout {
+	max-width: 1440px;
+	padding: 0 130px;
+
+	@include tablet {
 		padding: 0 30px;
 	}
 }
@@ -218,13 +237,18 @@ iframe {
 }
 .currencies__list-card {
 	background: $header;
-	border: 2px solid $pink;
 	border-radius: 10px;
 	display: flex;
 	flex-basis: 380px;
 	flex-direction: column;
 	padding: 15px 20px;
+	border: 2px solid transparent;
+	transition: border-color 0.3s ease-in-out;
+	&:hover {
+		border: 2px solid $pink;
+	}
 }
+
 .currencies__list-card-id {
 	color: $text;
 	font-family: Nunito;
@@ -276,7 +300,7 @@ iframe {
 	background: $header;
 	border-radius: 10px;
 	margin-top: 50px;
-	max-height: 330px;
+	max-height: 312px;
 	padding: 20px;
 	width: 580px;
 }
@@ -307,6 +331,10 @@ iframe {
 }
 .account__dynamic-select option {
 	background-color: $header;
+}
+.canvas {
+	max-width: 540px;
+	max-height: 248px;
 }
 .account__button {
 	align-items: center;
@@ -392,6 +420,16 @@ iframe {
 	.account__history {
 		margin-bottom: 30px;
 		max-width: 100%;
+		// position: relative;
+		// width: 100%;
+		// overflow: hidden;
+	
+		// &:after {
+		// 	content: '';
+		// 	display: block;
+		// 	height: 100%;
+		// 	margin-right: -20px;
+		// }
 	}
 	.account__history-title {
 		font-size: 20px;
@@ -422,6 +460,26 @@ iframe {
 	max-height: 487px;
 	overflow-x: hidden;
 	overflow-y: auto;
+	/* Custom Scroll Styles */
+	scrollbar-width: thin;
+	scrollbar-color: $header $text;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $text;
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: $pink;
+	}
 }
 .account__table-table {
 	background-color: $header;
@@ -440,16 +498,19 @@ iframe {
 	border-bottom: 1px solid $bgcolor;
 	padding: 10px 0 16px 20px;
 	text-align: left;
-}
-.account__table-th:first-child {
-	padding-left: 0;
-}
-.account__table-th:nth-child(2) {
-	border-left: 1px solid $bgcolor;
-	border-right: 1px solid $bgcolor;
-}
-.account__table-th:last-child {
-	padding-left: 12px;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:nth-child(2) {
+		border-left: 1px solid $bgcolor;
+		border-right: 1px solid $bgcolor;
+	}
+
+	&:last-child {
+		padding-left: 12px;
+	}
 }
 .account__table-tbody {
 	font-family: Nunito;
@@ -459,14 +520,20 @@ iframe {
 }
 .account__table-td {
 	padding: 12px 0;
-}
-.account__table-td-middle {
-	border-left: 1px solid $bgcolor;
-	border-right: 1px solid $bgcolor;
-	padding-left: 20px;
-}
-.account__table-td-date {
-	padding-left: 12px;
+
+	&.account__table-td-middle {
+		border-left: 1px solid $bgcolor;
+		border-right: 1px solid $bgcolor;
+		padding-left: 20px;
+	}
+
+	&.account__table-td-negative {
+		color: #B865D6;
+	}
+
+	&.account__table-td-date {
+		padding-left: 12px;
+	}
 }
 @media (max-width: 768px) {
 	.account__table-container {
@@ -779,29 +846,25 @@ iframe {
 	bottom: 50px;
 	position: absolute;
 	width: 100%;
-
-	align-items: center;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	&__copy {
-		margin-right: 160px;
-	}
-}
+	max-width: 1180px;
 
-// .footer__copy {
-// 	margin-left: 800px;
-// }
-@media (max-width: 768px) {
-	// TODO
-	.Footer_logo__\+JiYo { 
-		max-width: 100px;
-	}
-	.footer__copy {
-		margin-right: 40px;
-		font-size: 14px;
-	}
-	.footer {
+	@include tablet {
 		bottom: 20px;
 		width: 90%;
+	}
+	&__copy {
+	
+		@include tablet {
+			margin-right: 40px;
+			font-size: 14px;
+		}
+	}
+	&__logo {
+		@include tablet {
+			max-width: 100px;
+		}
 	}
 }

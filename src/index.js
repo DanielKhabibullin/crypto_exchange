@@ -2,12 +2,9 @@ import './index.html';
 import './index.scss';
 import {router} from './modules/router.js';
 import {renderFooter} from './modules/render/renderFooter.js';
-import {renderHeader} from
-	'./modules/render/renderHeader.js';
 import {loginPageController,
 } from './modules/controllers/loginPageController.js';
 import {loadFromSessionStorage} from './modules/storage.js';
-import {renderCheck} from './modules/render/renderAccountPage.js';
 import {accountsPageController,
 } from './modules/controllers/accountsPageController.js';
 import {exchangePageController,
@@ -29,17 +26,12 @@ const init = async () => {
 		'auth': () => {
 			loginPageController();
 		},
-
 		'accounts': () => {
 			const accountsData = loadFromSessionStorage('accountsData');
 			accountsPageController(accountsData);
 		},
 		'exchange': () => {
 			exchangePageController();
-		},
-		'currencies': () => {
-			renderHeader();
-			renderCheck();
 		},
 	}).resolve();
 };
