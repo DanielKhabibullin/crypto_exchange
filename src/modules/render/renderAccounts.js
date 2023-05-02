@@ -10,7 +10,7 @@ const accounts = createElement('div',
 		append: createElement('h2',
 			{
 				className: 'currencies__title',
-				textContent: 'Здравствуйте, Username!',
+				textContent: 'Здравствуйте, developer!',
 			},
 		),
 	},

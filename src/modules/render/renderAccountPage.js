@@ -3,7 +3,26 @@ import {main} from '../../index.js';
 import {createCanvas} from '../tools/createCanvas.js';
 /* eslint-disable max-len */
 
-export const renderAccountPage = (accountData) => {
+export const createAccountTransactionForm = () => {
+	const accountNumber = el('input.account__transaction-input', {name: 'to'});
+	const transactionAmount = el('input.account__transaction-input', {name: 'amount'});
+	const transactionSubmit = el('button.account__button.button', 'Перевести', {type: 'submit'});
+	const form = el('form.account__transaction-form', [
+		el('div.account__transaction-input-wrapper', [
+			el('label.account__transaction-label', 'Счет'),
+			accountNumber,
+		]),
+		el('div.account__transaction-input-wrapper', [
+			el('label.account__transaction-label', 'Сумма'),
+			transactionAmount,
+		]),
+		transactionSubmit,
+	]);
+
+	return {form, accountNumber, transactionAmount, transactionSubmit};
+};
+
+export const renderAccountPage = (accountData, form) => {
 	const backButton = el('a.account__button.button', {href: '/#/accounts'}, [
 		el('svg', {
 			innerHTML: `
@@ -57,17 +76,6 @@ export const renderAccountPage = (accountData) => {
 	const tableContainer = el('div.account__table-container', table);
 	const accountHistory = el('div.account__history', [historyTitle, tableContainer]);
 
-	const form = el('form.account__transaction-form', [
-		el('div.account__transaction-input-wrapper', [
-			el('label.account__transaction-label', 'Счет'),
-			el('input.account__transaction-input', {name: 'to'}),
-		]),
-		el('div.account__transaction-input-wrapper', [
-			el('label.account__transaction-label', 'Сумма'),
-			el('input.account__transaction-input', {name: 'amount'}),
-		]),
-		el('button.account__button.button', 'Перевести', {type: 'submit'}),
-	]);
 	const transactionTitle = el('h3.account__title.account__transaction-title', 'Перевод');
 	const accountTransaction = el('div.account__transaction', [transactionTitle, form]);
 	const accountTitle = el('h2.account__title', `Счет №${accountData.account}`);

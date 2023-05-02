@@ -48,25 +48,25 @@ export const loginPageController = () => {
 		validatePassword();
 	});
 
-	form.addEventListener('submit', (e) => {
+	form.addEventListener('submit', async e => {
 		e.preventDefault();
 		// TODO preloader;
-		getUserToken(loginInput.value, passwordInput.value)
-			.then((res) => {
-				saveToSessionStorage('token', res.payload.token);
-				return getUserAccounts(res.payload.token);
-			})
-			.then((res) => {
-				window.location.hash = '#/accounts';
-				saveToSessionStorage('accountsData', res.payload);
-				accountsPageController(res.payload);
-			})
-			.catch((err) => {
-				console.log(err.message);
-				// TODO error;
-			})
-			.finally(() => {
-				// TODO preloader off;
-			});
+		try {
+			const tokenResponse = await getUserToken(loginInput.value, passwordInput.value);
+			const token = tokenResponse.payload.token;
+			saveToSessionStorage('token', token);
+
+			const accountsResponse = await getUserAccounts(token);
+			const accountsData = accountsResponse.payload;
+			saveToSessionStorage('accountsData', accountsData);
+
+			window.location.hash = '#/accounts';
+			accountsPageController(accountsData);
+		} catch (err) {
+			console.error(err.message);
+			// TODO error;
+		} finally {
+			// TODO preloader off;
+		}
 	});
 };

@@ -1,11 +1,9 @@
-import {Chart} from 'chart.js';
+import {Chart} from 'chart.js/auto';
 import {getMonthlyBalances} from './getMonthlyBalances.js';
 
 export const createCanvas = (accountData) => {
 	const canvas = document.createElement('canvas');
 	canvas.classList.add('canvas');
-	canvas.width = 400;
-	canvas.height = 200;
 	const monthlyBalances = getMonthlyBalances(accountData);
 	const months = monthlyBalances.map(item => item.month);
 	const balances = monthlyBalances.map(item => item.balance);

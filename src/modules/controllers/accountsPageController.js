@@ -6,7 +6,7 @@ import {renderHeader} from '../render/renderHeader.js';
 import {loadFromSessionStorage} from '../storage.js';
 import {sortBy} from '../tools/sort.js';
 
-export const accountsPageController = async (accountsData) => {
+export const accountsPageController = (accountsData) => {
 	renderHeader('accounts');
 	renderAccounts();
 
@@ -27,11 +27,11 @@ export const accountsPageController = async (accountsData) => {
 				// TODO preloader off;
 			});
 	});
-	await accountsData.forEach((account) => {
+	accountsData.forEach((account) => {
 		accountsList.append(renderAccountItem(account));
 	});
 
-	// TODO select sort
+
 	accountsSelect.addEventListener('change', () => {
 		const selectedOption = accountsSelect.querySelector('option:checked').id;
 		const token = loadFromSessionStorage('token');
