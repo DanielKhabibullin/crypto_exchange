@@ -9,8 +9,6 @@ import {accountsPageController,
 } from './modules/controllers/accountsPageController.js';
 import {exchangePageController,
 } from './modules/controllers/exchangePageController.js';
-import { getUserAccount } from './modules/fetch.js';
-import { accountPageController } from './modules/controllers/accountPageController.js';
 
 export const urlApi = 'http://localhost:3000';
 export const main = document.querySelector('.main');
@@ -32,7 +30,6 @@ const init = async () => {
 			const accountsData = loadFromSessionStorage('accountsData');
 			accountsPageController(accountsData);
 		},
-
 		'exchange': () => {
 			exchangePageController();
 		},

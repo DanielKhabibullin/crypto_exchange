@@ -397,6 +397,19 @@ iframe {
 	min-height: 70px;
 	padding: 20px;
 }
+.account__transaction-message {
+	color: #FF7272;
+	font-size: 14px;
+	margin-top: 4px;
+}
+.account__transaction-message--error {
+	font-weight: bold;
+}
+.account__transaction-success-message {
+	color: #6AD880;
+	font-size: 14px;
+	margin-top: 4px;
+}
 .account__button {
 	font-family: Nunito;
 	font-size: 18px;

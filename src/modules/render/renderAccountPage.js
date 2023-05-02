@@ -18,11 +18,13 @@ export const createAccountTransactionForm = () => {
 		]),
 		transactionSubmit,
 	]);
+	const transactionTitle = el('h3.account__title.account__transaction-title', 'Перевод');
+	const accountTransaction = el('div.account__transaction', [transactionTitle, form]);
 
-	return {form, accountNumber, transactionAmount, transactionSubmit};
+	return {form, accountNumber, transactionAmount, transactionSubmit, accountTransaction};
 };
 
-export const renderAccountPage = (accountData, form) => {
+export const renderAccountPage = (accountData, accountTransaction) => {
 	const backButton = el('a.account__button.button', {href: '/#/accounts'}, [
 		el('svg', {
 			innerHTML: `
@@ -76,8 +78,6 @@ export const renderAccountPage = (accountData, form) => {
 	const tableContainer = el('div.account__table-container', table);
 	const accountHistory = el('div.account__history', [historyTitle, tableContainer]);
 
-	const transactionTitle = el('h3.account__title.account__transaction-title', 'Перевод');
-	const accountTransaction = el('div.account__transaction', [transactionTitle, form]);
 	const accountTitle = el('h2.account__title', `Счет №${accountData.account}`);
 	const accountHeader = el('div.account__container-header', [accountTitle, backButton]);
 

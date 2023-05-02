@@ -33,7 +33,8 @@ export const renderAccountItem = (account) => {
 			router.navigate('/auth');
 		} else {
 			history.pushState(null, null, link.href);
-			accountPageController(token, account.account);
+			const accountsData = loadFromSessionStorage('accountsData');
+			accountPageController(token, account.account, accountsData);
 		}
 	});
 
