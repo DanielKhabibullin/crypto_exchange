@@ -4,8 +4,10 @@ import {createTransferFunds, getUserAccount} from '../fetch.js';
 import {createAccountTransactionForm,
 	renderAccountPage} from '../render/renderAccountPage.js';
 import {loadFromSessionStorage} from '../storage.js';
+import {renderHeader} from '../render/renderHeader.js';
 
 export const accountPageController = async (token, id, accountsData) => {
+	renderHeader('account');
 	const formResult = createAccountTransactionForm();
 	const {
 		form,

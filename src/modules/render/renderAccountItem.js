@@ -1,24 +1,28 @@
 import {el} from 'redom';
-import {accountPageController} from '../controllers/accountPageController.js';
 import {router} from '../router.js';
 import {loadFromSessionStorage} from '../storage.js';
 
 export const renderAccountItem = (account) => {
+	if (!account) {
+		console.log('no account here');
+		return null;
+	}
 	let lastTransaction = 'Транзакций не было';
 	if (account.transactions.length > 0) {
-		lastTransaction = new Date(account.transactions[0].date).
+		lastTransaction = new Date(account.transactions[0]?.date).
 			toLocaleDateString();
 	}
-	const openDate = new Date(account.date).toLocaleDateString();
+	const openDate = account.date ? new Date(account.date).toLocaleDateString() :
+	'19.06.21';
 
 	const link = el('a.currencies__list-link',
-		{href: `#/account/${account.account}`},
+		{href: `account/${account.account}`},
 		el('p.currencies__list-card-id', `${account.account}`),
 		el('p.currencies__list-card-balance', `${account.balance} `),
 		el('div.currencies__list-card-info',
 			el('div',
 				el('p', 'открыт'),
-				el('p', `${account.date ? openDate : '19.06.22'}`),
+				el('p', `${openDate}`),
 			),
 			el('div',
 				el('p', 'последняя операция'),
@@ -32,9 +36,7 @@ export const renderAccountItem = (account) => {
 		if (!token) {
 			router.navigate('/auth');
 		} else {
-			history.pushState(null, null, link.href);
-			const accountsData = loadFromSessionStorage('accountsData');
-			accountPageController(token, account.account, accountsData);
+			router.navigate(`account/${account.account}`);
 		}
 	});
 

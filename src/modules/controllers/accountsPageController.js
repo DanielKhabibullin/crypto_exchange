@@ -27,6 +27,7 @@ export const accountsPageController = (accountsData) => {
 				// TODO preloader off;
 			});
 	});
+	accountsList.innerHTML = '';
 	accountsData.forEach((account) => {
 		accountsList.append(renderAccountItem(account));
 	});

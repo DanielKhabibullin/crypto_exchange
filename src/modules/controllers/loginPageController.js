@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
-import {getUserAccounts, getUserToken} from '../fetch.js';
+import {createElement} from '../createElement.js';
+import {getUserToken} from '../fetch.js';
 import {renderHeader} from '../render/renderHeader.js';
 import {form, loginError, loginInput, passwordError, passwordInput,
 	renderLogin, submitButton} from '../render/renderLogin.js';
+import {router} from '../router.js';
 import {saveToSessionStorage} from '../storage.js';
 import {validateLogin, validatePassword} from '../tools/validate.js';
-import {accountsPageController} from './accountsPageController.js';
+
 
 export const loginPageController = () => {
 	window.localStorage.clear();
@@ -56,15 +58,24 @@ export const loginPageController = () => {
 			const token = tokenResponse.payload.token;
 			saveToSessionStorage('token', token);
 
-			const accountsResponse = await getUserAccounts(token);
-			const accountsData = accountsResponse.payload;
-			saveToSessionStorage('accountsData', accountsData);
-
-			window.location.hash = '#/accounts';
-			accountsPageController(accountsData);
+			router.navigate('/accounts');
 		} catch (err) {
-			console.error(err.message);
-			// TODO error;
+			console.error(err);
+			const error = document.querySelector('.error');
+			if (error) error.remove();
+			setTimeout(() => {
+				createElement('h2', {
+					textContent: `${err.message}`,
+					className: 'error',
+				},
+				{
+					parent: form,
+					cb(h2) {
+						h2.style.textAlign = 'center';
+					},
+				},
+				);
+			}, 3000);
 		} finally {
 			// TODO preloader off;
 		}
