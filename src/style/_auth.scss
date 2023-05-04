@@ -1,0 +1,76 @@
+.auth {
+	display: flex;
+	justify-content: center;
+	padding-top: 120px;
+	
+	&__container {
+	background: $header;
+	border-radius: 10px;
+	display: flex;
+	height: 466px;
+	justify-content: center;
+	padding: 50px 0;
+	width: 580px;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	
+		&-title {
+			font-family: Comfortaa;
+			font-size: 38px;
+			font-weight: 700;
+			line-height: 42px;
+			margin-bottom: 20px;
+		}
+	
+		&-label {
+			color: $text;
+			font-family: Nunito;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 20px;
+			margin-bottom: 2px;
+		}
+	
+		&-input {
+			border: 2px solid $pink;
+			border-radius: 10px;
+			padding: 20px;
+		}
+	
+		&-button {
+			font-family: Nunito;
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 25px;
+			padding: 22.5px 0;
+	
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+		}
+
+		&-input-wrapper {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 30px;
+			position: relative;
+			width: 380px;
+			&:not(:last-of-type) {
+				margin-bottom: 20px;
+			}
+		}
+
+		&-error {
+			bottom: 1px;
+			color: red;
+			font-size: 12px;
+			position: absolute;
+			right: 1px;
+			left: 10px;
+		}
+	}
+}

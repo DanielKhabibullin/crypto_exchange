@@ -7,7 +7,7 @@ export const validateLogin = () => {
 	const loginValue = loginInput.value.trim();
 
 	if (!loginValue) {
-		loginError.textContent = 'Please type login.';
+		loginError.textContent = 'Please type login';
 		return false;
 	}
 
@@ -25,12 +25,12 @@ export const validatePassword = () => {
 	const passwordValue = passwordInput.value.trim();
 
 	if (!passwordValue) {
-		passwordError.textContent = 'Please type password.';
+		passwordError.textContent = 'Please type password';
 		return false;
 	}
 
 	if (!passwordRegex.test(passwordValue)) {
-		passwordError.textContent = 'Password must contain only latin letters and numbers (at least 6 characters).';
+		passwordError.textContent = 'Password must contain only latin letters and numbers (at least 6 characters)';
 		return false;
 	}
 

@@ -49,7 +49,7 @@ const renderExchangeRatesWrapper = () => {
 
 export const renderExchangeFormWrapper = async () => {
 	const token = loadFromSessionStorage('token');
-	const currencies = await getAllCurrencies(token); // TODO
+	const currencies = await getAllCurrencies(token);
 
 	const fromSelect = el('select.exchange__form-select', {name: 'from'});
 	const toSelect = el('select.exchange__form-select', {name: 'to'});

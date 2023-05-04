@@ -5,6 +5,7 @@ import {createAccountTransactionForm,
 	renderAccountPage} from '../render/renderAccountPage.js';
 import {loadFromSessionStorage} from '../storage.js';
 import {renderHeader} from '../render/renderHeader.js';
+import {preloader} from '../tools/loader.js';
 
 export const accountPageController = async (token, id, accountsData) => {
 	renderHeader('account');
@@ -28,7 +29,7 @@ export const accountPageController = async (token, id, accountsData) => {
 		[accountMessage, amountMessage, successMessage]);
 	accountTransaction.appendChild(formMessages);
 
-	// TODO preloader
+	preloader(true);
 	getUserAccount(token, id)
 		.then((res) => {
 			main.innerHTML = '';
@@ -38,7 +39,7 @@ export const accountPageController = async (token, id, accountsData) => {
 			console.error(err.message);
 		})
 		.finally(() => {
-		// TODO preloader
+			preloader();
 		});
 
 	accountNumber.addEventListener('input', () => {
@@ -80,7 +81,7 @@ export const accountPageController = async (token, id, accountsData) => {
 		e.preventDefault();
 		const answer = confirm('Вы уверены?');
 		if (!answer) return;
-
+		preloader();
 		const token = loadFromSessionStorage('token');
 		createTransferFunds(id, accountNumber.value, transactionAmount.value, token)
 			.then((res) => {
@@ -93,7 +94,7 @@ export const accountPageController = async (token, id, accountsData) => {
 				console.error(error);
 			})
 			.finally(() => {
-				// TODO off preloader
+				preloader();
 				accountNumber.value = '';
 				transactionAmount.value = '';
 				transactionSubmit.setAttribute('disabled', 'true');

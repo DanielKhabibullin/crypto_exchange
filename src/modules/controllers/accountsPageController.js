@@ -4,6 +4,7 @@ import {createAccountBtn, accountsList, accountsSelect, renderAccounts,
 } from '../render/renderAccounts.js';
 import {renderHeader} from '../render/renderHeader.js';
 import {loadFromSessionStorage} from '../storage.js';
+import { preloader } from '../tools/loader.js';
 import {sortBy} from '../tools/sort.js';
 
 export const accountsPageController = (accountsData) => {
@@ -14,7 +15,7 @@ export const accountsPageController = (accountsData) => {
 		e.preventDefault();
 		const token = loadFromSessionStorage('token');
 
-		// TODO preloader;
+		preloader(true);
 		createNewAccount(token)
 			.then((res) => {
 				accountsList.append(renderAccountItem(res.payload));
@@ -23,8 +24,7 @@ export const accountsPageController = (accountsData) => {
 				console.log(err.message);
 			})
 			.finally(() => {
-
-				// TODO preloader off;
+				preloader();
 			});
 	});
 	accountsList.innerHTML = '';
@@ -36,8 +36,7 @@ export const accountsPageController = (accountsData) => {
 	accountsSelect.addEventListener('change', () => {
 		const selectedOption = accountsSelect.querySelector('option:checked').id;
 		const token = loadFromSessionStorage('token');
-		// TODO change date for 1 account
-		// TODO preloader;
+		preloader(true);
 		getUserAccounts(token)
 			.then((res) => sortBy(res.payload, selectedOption))
 			.then((res) => {
@@ -50,7 +49,7 @@ export const accountsPageController = (accountsData) => {
 				console.log('err.message: ', err.message);
 			})
 			.finally(() => {
-			// TODO off preloader;
+				preloader();
 			});
 	});
 };

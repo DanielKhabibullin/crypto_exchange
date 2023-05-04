@@ -1,0 +1,57 @@
+.active {
+	color: #c6b6d7;
+	color: $text;
+}
+.header {
+	background-color: $header;
+	padding: 20px 0;
+	
+	&__container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	&__navigation {
+		gap: 30px;
+		display: flex;
+		font-family: Nunito;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 20px;
+		
+		&-exit {
+			display: flex;
+			font-family: Nunito;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 20px;
+			align-items: center;
+			background-color: initial;
+			border: none;
+			color: #fff;
+			gap: 5px;
+		}
+	}
+	
+	@include tablet {
+		padding: 10px 0;
+		
+		&__navigation {
+			font-size: 12px;
+			gap: 15px;
+			
+			&-exit {
+				font-size: 12px;
+			}
+		}
+		
+		&__logo-image {
+			max-width: 100px;
+		}
+		
+		&__navigation-arrow {
+			max-width: 10px;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.footer {
+	bottom: 50px;
+	position: absolute;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1180px;
+
+	@include tablet {
+		bottom: 20px;
+		width: 90%;
+	}
+	&__copy {
+	
+		@include tablet {
+			margin-right: 40px;
+			font-size: 14px;
+		}
+	}
+	&__logo {
+		@include tablet {
+			max-width: 100px;
+		}
+	}
+}

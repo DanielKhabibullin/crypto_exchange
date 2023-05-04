@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { main } from '../../index.js';
 import {createElement} from '../createElement.js';
 import {getUserToken} from '../fetch.js';
 import {renderHeader} from '../render/renderHeader.js';
@@ -6,6 +7,7 @@ import {form, loginError, loginInput, passwordError, passwordInput,
 	renderLogin, submitButton} from '../render/renderLogin.js';
 import {router} from '../router.js';
 import {saveToSessionStorage} from '../storage.js';
+import { preloader } from '../tools/loader.js';
 import {validateLogin, validatePassword} from '../tools/validate.js';
 
 
@@ -52,7 +54,7 @@ export const loginPageController = () => {
 
 	form.addEventListener('submit', async e => {
 		e.preventDefault();
-		// TODO preloader;
+		preloader(true);
 		try {
 			const tokenResponse = await getUserToken(loginInput.value, passwordInput.value);
 			const token = tokenResponse.payload.token;
@@ -77,7 +79,7 @@ export const loginPageController = () => {
 				);
 			}, 3000);
 		} finally {
-			// TODO preloader off;
+			preloader();
 		}
 	});
 };

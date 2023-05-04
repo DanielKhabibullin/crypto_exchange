@@ -3,6 +3,7 @@ import {router} from '../router.js';
 import {loadFromSessionStorage} from '../storage.js';
 
 export const renderAccountItem = (account) => {
+	console.log(account);
 	if (!account) {
 		console.log('no account here');
 		return null;
