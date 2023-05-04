@@ -1,41 +1,53 @@
+/* comfortaa-700 - cyrillic_latin */
 @font-face {
-	font-family: Comfortaa;
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Comfortaa';
 	font-style: normal;
 	font-weight: 700;
-	src: local(''),
-		url(../fonts/comfortaa-v40-cyrillic-700.bc1657ffe7d1c15ef896.woff2)
-			format('woff2'),
-		// url(../fonts/comfortaa-v40-cyrillic-700.8b9ee79ac461735db231.woff)
-		// 	format('woff');
+	src: url('../fonts/comfortaa-v40-cyrillic_latin-700.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/comfortaa-v40-cyrillic_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('../fonts/comfortaa-v40-cyrillic_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+			url('../fonts/comfortaa-v40-cyrillic_latin-700.woff') format('woff'), /* Modern Browsers */
+			url('../fonts/comfortaa-v40-cyrillic_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+			url('../fonts/comfortaa-v40-cyrillic_latin-700.svg#Comfortaa') format('svg'); /* Legacy iOS */
 }
-// TODO
+
+/* nunito-regular - cyrillic_latin */
 @font-face {
-	font-family: Nunito;
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Nunito';
 	font-style: normal;
 	font-weight: 400;
-	src: local(''),
-		url(../fonts/nunito-v24-cyrillic-regular.ac1741731b39bc1f5abf.woff2)
-			format('woff2'),
-		// url(../fonts/nunito-v24-cyrillic-regular.3b59f67332cde536e48c.woff)
-		// 	format('woff');
+	src: url('../fonts/nunito-v25-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/nunito-v25-cyrillic_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('../fonts/nunito-v25-cyrillic_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-regular.woff') format('woff'), /* Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+			url('../fonts/nunito-v25-cyrillic_latin-regular.svg#Nunito') format('svg'); /* Legacy iOS */
 }
+/* nunito-600 - cyrillic_latin */
 @font-face {
-	font-family: Nunito;
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Nunito';
 	font-style: normal;
 	font-weight: 600;
-	src: local(''),
-		url(../fonts/nunito-v24-cyrillic-600.ea9bb316e858c376c2ab.woff2)
-			format('woff2'),
-		// url(../fonts/nunito-v24-cyrillic-600.259682ca852c1e33be44.woff)
-		// 	format('woff');
+	src: url('../fonts/nunito-v25-cyrillic_latin-600.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/nunito-v25-cyrillic_latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('../fonts/nunito-v25-cyrillic_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-600.woff') format('woff'), /* Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+			url('../fonts/nunito-v25-cyrillic_latin-600.svg#Nunito') format('svg'); /* Legacy iOS */
 }
+/* nunito-700 - cyrillic_latin */
 @font-face {
-	font-family: Nunito;
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Nunito';
 	font-style: normal;
 	font-weight: 700;
-	src: local(''),
-		url(../fonts/nunito-v24-cyrillic-700.17457b80884d06340e5d.woff2)
-			format('woff2'),
-		// url(../fonts/nunito-v24-cyrillic-700.28f98bfe91c387ab77d0.woff)
-		// 	format('woff');
+	src: url('../fonts/nunito-v25-cyrillic_latin-700.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/nunito-v25-cyrillic_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('../fonts/nunito-v25-cyrillic_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-700.woff') format('woff'), /* Modern Browsers */
+			url('../fonts/nunito-v25-cyrillic_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+			url('../fonts/nunito-v25-cyrillic_latin-700.svg#Nunito') format('svg'); /* Legacy iOS */
 }

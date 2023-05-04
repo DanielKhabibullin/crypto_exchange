@@ -3,11 +3,6 @@ import {router} from '../router.js';
 import {loadFromSessionStorage} from '../storage.js';
 
 export const renderAccountItem = (account) => {
-	console.log(account);
-	if (!account) {
-		console.log('no account here');
-		return null;
-	}
 	let lastTransaction = 'Транзакций не было';
 	if (account.transactions.length > 0) {
 		lastTransaction = new Date(account.transactions[0]?.date).

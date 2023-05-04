@@ -15,7 +15,9 @@ import {createElement} from './modules/createElement.js';
 import {accountPageController,
 } from './modules/controllers/accountPageController.js';
 
-export const urlApi = 'http://localhost:3000';
+// export const urlApi = 'http://localhost:3000';
+export const urlApi = 'https://scandalous-flying-bridge.glitch.me';
+export const socket = new WebSocket('ws://scandalous-flying-bridge.glitch.me/currency-feed');
 export const main = document.querySelector('.main');
 
 

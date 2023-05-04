@@ -1,5 +1,5 @@
 import {el, mount} from 'redom';
-import {main} from '../../index.js';
+import {main, socket} from '../../index.js';
 import {getAllCurrencies} from '../fetch.js';
 import {loadFromSessionStorage} from '../storage.js';
 /* eslint-disable max-len */
@@ -35,7 +35,6 @@ const renderExchangeRatesWrapper = () => {
 			exchangeRatesTable.childNodes[10].remove();
 		}
 	};
-	const socket = new WebSocket('ws://localhost:3000/currency-feed');
 
 	socket.addEventListener('message', message => {
 		renderExchangeRates(JSON.parse(message.data));

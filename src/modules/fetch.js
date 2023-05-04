@@ -1,4 +1,4 @@
-export const urlApi = 'http://localhost:3000';
+import {urlApi} from '../index.js';
 
 export const getUserToken = async (userLogin, userPassword) => {
 	const response = await fetch(`${urlApi}/login`, {
