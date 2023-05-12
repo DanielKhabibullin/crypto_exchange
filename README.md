@@ -1,6 +1,6 @@
 # crypto_exchange
 
-Проект выложен на «<a href="https://github.com/DanielKhabibullin/crypto_exchange">vercel</a>»
+Проект выложен на «<a href="https://crypto-exchange-sigma-nine.vercel.app">vercel</a>»
 
 ## Сборка и запуск проекта:
 ### backend: 
