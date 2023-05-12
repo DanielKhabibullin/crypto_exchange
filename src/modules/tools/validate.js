@@ -38,34 +38,37 @@ export const validatePassword = () => {
 	return true;
 };
 
-// export const validateTransaction =
-// (accountsData, id, accountNumber, transactionAmount,
-// 		accountMessage, amountMessage, transactionSubmit) => {
-// 	const accountExists = accountsData.some(accountData =>
-// 		accountData.account === accountNumber.value);
+export const validateTransaction =
+(accountsData, id, accountNumber, transactionAmount,
+		accountMessage, amountMessage, transactionSubmit) => {
+	const accountExists = accountsData.some(accountData =>
+		accountData.account === accountNumber.value);
 
-// 	const isAmountValid = !isNaN(transactionAmount.value) &&
-// 		transactionAmount.value > 0 &&
-// 		transactionAmount.value <= accountsData.find(accountData =>
-// 			accountData.account === id).balance;
+	const isAmountValid = !isNaN(transactionAmount.value) &&
+		transactionAmount.value > 0 &&
+		transactionAmount.value <= accountsData.find(accountData =>
+			accountData.account === id).balance;
 
-// 	const isAccountValid = accountNumber.value !== id && accountExists;
+	const isAccountValid = accountNumber.value !== id && accountExists;
 
-// 	if (!isAccountValid) {
-// 		accountMessage.textContent = isAccountValid ? '' : 'Invalid account number';
-// 		accountMessage.style.display = isAccountValid ? 'none' : 'block';
-// 	} else {
-// 		accountMessage.style.display = 'none';
-// 	}
+	if (!isAccountValid) {
+		accountMessage.textContent = isAccountValid ? '' : 'Invalid account number';
+		accountMessage.style.display = isAccountValid ? 'none' : 'block';
+	} else {
+		accountMessage.style.display = 'none';
+	}
 
-// 	if (!isAmountValid) {
-// 		amountMessage.textContent = isAmountValid ? '' :
-// 			isNaN(transactionAmount.value) || transactionAmount.value <= 0 ?
-// 				'Invalid transaction amount' : 'Insufficient funds';
-// 		amountMessage.style.display = isAmountValid ? 'none' : 'block';
-// 	} else {
-// 		amountMessage.style.display = 'none';
-// 	}
-
-// 	transactionSubmit.disabled = !isAccountValid || !isAmountValid;
-// };
+	if (!isAmountValid) {
+		amountMessage.textContent = isAmountValid ? '' :
+			isNaN(transactionAmount.value) || transactionAmount.value <= 0 ?
+				'Invalid transaction amount' : 'Insufficient funds';
+		amountMessage.style.display = isAmountValid ? 'none' : 'block';
+	} else {
+		amountMessage.style.display = 'none';
+	}
+	if (!isAccountValid || !isAmountValid) {
+		transactionSubmit.disabled = true;
+	} else {
+		transactionSubmit.disabled = false;
+	}
+};
